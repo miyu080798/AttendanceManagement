@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\AttendanceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/register', function () {
+    return view('user.register');
+})->middleware('guest')->name('register');
+
+Route::post('/register', [RegisterController::class, 'store'])
+    ->middleware('guest');
+
+Route::get('/attendance', [AttendanceController::class, 'index'])
+    ->middleware('auth');

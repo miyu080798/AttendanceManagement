@@ -47,12 +47,12 @@ class FortifyServiceProvider extends ServiceProvider
 
         // ログインフォームのビューを指定
         Fortify::loginView(function () {
-            return view('auth.login');
+            return view('user.user-login');
         });
 
         // ユーザー登録フォームのビューを指定
         Fortify::registerView(function () {
-            return view('auth.register');
+            return view('user.register');
         });
     }
 }
